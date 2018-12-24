@@ -1,6 +1,6 @@
 {
   "name": "simple-state-handle",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "totally useless react state handle base class",
   "main": "./StateHandle.coffee",
   "author": "arxii",
