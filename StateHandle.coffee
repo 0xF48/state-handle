@@ -1,4 +1,5 @@
-{h,render} = require 'preact'
+{createElement} = require 'react'
+{render} = require 'react-dom'
 # class to handle the app state.
 class StateHandle
 	constructor: (props={})->
@@ -23,6 +24,6 @@ class StateHandle
 		@_binds.splice @_binds.indexOf(fn),1
 
 	render: =>
-		@_el = render(h(@view,@state),document.body,@_el)
+		@_el = render(createElement(@view,@state),document.body,@_el)
 
 module.exports = StateHandle
