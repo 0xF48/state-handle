@@ -4,6 +4,7 @@
 class StateHandle
 	constructor: (props={})->
 		@view = props.view
+		@_el = props.el
 		@state = {}
 		@_binds = []
 	
@@ -24,6 +25,6 @@ class StateHandle
 		@_binds.splice @_binds.indexOf(fn),1
 
 	render: =>
-		@_el = render(createElement(@view,@state),document.body,@_el)
+		render(createElement(@view,@state),@_el)
 
 module.exports = StateHandle
