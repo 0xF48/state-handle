@@ -11,11 +11,16 @@ class StateHandle
 	setState: (state)=>
 		if !state
 			return @render()
-		@state = Object.assign({},@state,state)
+		
+		new_state = Object.assign({},@state,state)
+		@preSetState?(@state,new_state)
+		old_state = @state
+		@state = new_state
 		for bind in @_binds
 			if !bind.key? || state[bind.key]
 				bind()
-		@render(@state)
+		@render()
+		@postSetState?(@state,old_state)
 
 	bind: (fn,key)->
 		fn.key = key
