@@ -2,7 +2,8 @@
 {render} = require 'react-dom'
 # class to handle the app state.
 class StateHandle
-	constructor: (props={})->
+	constructor: (props)->
+		props = props || {}
 		@view = props.view
 		@_el = props.el
 		@state = {}
